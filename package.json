@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-cloud-run",
+  "version": "1.0.0",
+  "description": "Basic CRUD website that uses mysql as database and will be deployed to Cloud Run in GCP",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnkevinevangelio/nodejs-cloud-run.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnkevinevangelio/nodejs-cloud-run/issues"
+  },
+  "homepage": "https://github.com/johnkevinevangelio/nodejs-cloud-run#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "mysql": "^2.18.1"
+  }
+}
