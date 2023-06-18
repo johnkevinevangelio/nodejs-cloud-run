@@ -1,33 +1,23 @@
-
 const mysql = require('mysql');
 
 let config = {
-  host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME
-  // socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`
 }
 
-// if(process.env.NODE_ENV === 'production') {
-//   console.log('Running from cloud. Connecting to DB through GCP socket.');
-//   config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
-// }
-// // When running from localhost, get the config from .env
-// else {
-//   console.log('Running from localhost. Connecting to DB directly.');
-//   config.host = process.env.DB_HOST;
-// }
+if(process.env.NODE_ENV === 'production') {
+  console.log('Running from cloud. Connecting to DB through GCP socket.');
+  config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+}
+// When running from localhost, get the config from .env
+else {
+  console.log('Running from localhost. Connecting to DB directly.');
+  config.host = process.env.DB_HOST;
+}
+console.log('Heys', config)
 // Connection Pool
 let connection = mysql.createConnection(config);
-connection.connect((err) => {
-  if (err) {
-    console.log("Database Connection Failed !!!", err);
-  } else {
-    console.log("connected to Database");
-  }
-});
-
 // let connection = mysql.createConnection({
 //   host: process.env.DB_HOST,
 //   user: process.env.DB_USER,
@@ -150,7 +140,7 @@ exports.delete = (req, res) => {
     } else {
       console.log(err);
     }
-    console.log('The data from user table are: \n', rows);
+    console.log('The data from beer table are: \n', rows);
   });
 
 }
